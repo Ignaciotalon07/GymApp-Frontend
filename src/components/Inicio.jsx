@@ -35,9 +35,12 @@ export default function Inicio() {
   useEffect(() => {
     const fetchUsuario = async () => {
       try {
-        const res = await fetch("http://localhost:8080/api/auth/me", {
-          credentials: "include",
-        });
+        const res = await fetch(
+          "https://gymapp-backend.up.railway.app/api/auth/me",
+          {
+            credentials: "include",
+          }
+        );
         if (!res.ok) {
           setUsuario(null);
           return;

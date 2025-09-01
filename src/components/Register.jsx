@@ -12,12 +12,15 @@ export default function Register() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:8080/api/auth/register", {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nombre, apellido, email, password }),
-      });
+      const res = await fetch(
+        "https://gymapp-backend.up.railway.app/api/auth/register",
+        {
+          method: "POST",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ nombre, apellido, email, password }),
+        }
+      );
 
       if (!res.ok) throw new Error("Error al registrarse");
 

@@ -20,7 +20,7 @@ export default function NuevaReserva() {
 
   // Obtener info usuario logueado
   useEffect(() => {
-    fetch("http://localhost:8080/api/auth/me", {
+    fetch("https://gymapp-backend.up.railway.app/api/auth/me", {
       credentials: "include",
     })
       .then((res) => {
@@ -46,12 +46,15 @@ export default function NuevaReserva() {
     }
 
     try {
-      const res = await fetch("http://localhost:8080/api/reservas", {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ fecha, hora }),
-      });
+      const res = await fetch(
+        "https://gymapp-backend.up.railway.app/api/reservas",
+        {
+          method: "POST",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ fecha, hora }),
+        }
+      );
 
       if (!res.ok) {
         const data = await res.json();

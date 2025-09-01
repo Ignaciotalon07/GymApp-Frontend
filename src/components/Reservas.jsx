@@ -14,18 +14,24 @@ export default function Reservas() {
       try {
         // Si no tenemos usuario por estado (ej. recarga) lo buscamos
         if (!usuario) {
-          const userRes = await fetch("http://localhost:8080/api/auth/me", {
-            credentials: "include",
-          });
+          const userRes = await fetch(
+            "https://gymapp-backend.up.railway.app/api/auth/me",
+            {
+              credentials: "include",
+            }
+          );
           if (!userRes.ok) throw new Error("No se pudo obtener usuario");
           const userData = await userRes.json();
           setUsuario(userData.usuario);
         }
 
         // Luego, fetch de reservas (ya con usuario seteado o no)
-        const res = await fetch("http://localhost:8080/api/reservas/", {
-          credentials: "include",
-        });
+        const res = await fetch(
+          "https://gymapp-backend.up.railway.app/api/reservas/",
+          {
+            credentials: "include",
+          }
+        );
         if (!res.ok) throw new Error("Error en la petición");
         const data = await res.json();
         setReservas(data.reservas);

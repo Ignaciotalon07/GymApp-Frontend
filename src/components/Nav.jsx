@@ -14,7 +14,9 @@ export default function Nav({ usuario, email }) {
   if (!usuario) return null;
 
   const handleLogout = async () => {
-    await fetch("http://localhost:8080/logout", { credentials: "include" });
+    await fetch("https://gymapp-backend.up.railway.app/logout", {
+      credentials: "include",
+    });
     window.location.href = "/";
   };
   function capitalizar(texto) {

@@ -12,12 +12,15 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:8080/api/auth/login", {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(
+        "https://gymapp-backend.up.railway.app/api/auth/login",
+        {
+          method: "POST",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       if (!response.ok) {
         const err = await response.json();
@@ -26,9 +29,12 @@ export default function Login() {
       }
 
       // Traemos la info del usuario
-      const userRes = await fetch("http://localhost:8080/api/auth/me", {
-        credentials: "include",
-      });
+      const userRes = await fetch(
+        "https://gymapp-backend.up.railway.app/api/auth/me",
+        {
+          credentials: "include",
+        }
+      );
 
       if (!userRes.ok) {
         setError("No se pudo obtener la información del usuario");

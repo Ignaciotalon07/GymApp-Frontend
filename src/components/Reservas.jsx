@@ -12,10 +12,10 @@ export default function Reservas() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Si no tenemos usuario por estado (ej. recarga) lo buscamos
+        // Si no tenemos usuario por estado, lo buscamos
         if (!usuario) {
           const userRes = await fetch(
-            `${process.env.REACT_APP_API_URL}/api/auth/me`,
+            `${import.meta.env.VITE_API_URL}/api/auth/me`,
             {
               credentials: "include",
             }
@@ -25,9 +25,9 @@ export default function Reservas() {
           setUsuario(userData.usuario);
         }
 
-        // Luego, fetch de reservas (ya con usuario seteado o no)
+        //fetch de reservas
         const res = await fetch(
-          `${process.env.REACT_APP_API_URL}/api/reservas`,
+          `${import.meta.env.VITE_API_URL}/api/reservas`,
           {
             credentials: "include",
           }

@@ -46,7 +46,7 @@ export default function NuevaReserva() {
     }
 
     try {
-      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/reservas`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/reservas`, {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },

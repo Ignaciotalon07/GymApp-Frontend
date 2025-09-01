@@ -35,12 +35,9 @@ export default function Inicio() {
   useEffect(() => {
     const fetchUsuario = async () => {
       try {
-        const res = await fetch(
-          `${process.env.REACT_APP_API_URL}/api/auth/me`,
-          {
-            credentials: "include",
-          }
-        );
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/me`, {
+          credentials: "include",
+        });
         if (!res.ok) {
           setUsuario(null);
           return;

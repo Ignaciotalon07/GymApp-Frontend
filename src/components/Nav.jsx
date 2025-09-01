@@ -14,7 +14,7 @@ export default function Nav({ usuario, email }) {
   if (!usuario) return null;
 
   const handleLogout = async () => {
-    await fetch(`${process.env.REACT_APP_API_URL}/logout`, {
+    await fetch(`${import.meta.env.VITE_API_URL}/logout`, {
       credentials: "include",
     });
     window.location.href = "/";

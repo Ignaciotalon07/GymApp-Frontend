@@ -13,7 +13,7 @@ export default function Register() {
     e.preventDefault();
     try {
       const res = await fetch(
-        "https://gymapp-backend.up.railway.app/api/auth/register",
+        `${process.env.REACT_APP_API_URL}/api/auth/register`,
         {
           method: "POST",
           credentials: "include",

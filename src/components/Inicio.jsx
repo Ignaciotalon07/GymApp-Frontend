@@ -36,7 +36,7 @@ export default function Inicio() {
     const fetchUsuario = async () => {
       try {
         const res = await fetch(
-          "https://gymapp-backend.up.railway.app/api/auth/me",
+          `${process.env.REACT_APP_API_URL}/api/auth/me`,
           {
             credentials: "include",
           }
@@ -129,7 +129,6 @@ export default function Inicio() {
                 img: planOnlineImg,
               },
             ].map((plan, idx) => {
-              // Número de WhatsApp (cambiálo por el tuyo)
               const phoneNumber = "543512049674";
 
               // Mensaje dinámico

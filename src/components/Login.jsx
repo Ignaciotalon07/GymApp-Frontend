@@ -13,7 +13,7 @@ export default function Login() {
 
     try {
       const response = await fetch(
-        "https://gymapp-backend.up.railway.app/api/auth/login",
+        `${process.env.REACT_APP_API_URL}/api/auth/login`,
         {
           method: "POST",
           credentials: "include",
@@ -30,7 +30,7 @@ export default function Login() {
 
       // Traemos la info del usuario
       const userRes = await fetch(
-        "https://gymapp-backend.up.railway.app/api/auth/me",
+        `${process.env.REACT_APP_API_URL}/api/auth/me`,
         {
           credentials: "include",
         }

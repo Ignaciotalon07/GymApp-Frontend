@@ -26,14 +26,11 @@ export default function ChatFlotante() {
     setMensajes((prev) => [...prev, { emisor: "usuario", texto: mensaje }]);
 
     try {
-      const res = await fetch(
-        "https://gymapp-backend.up.railway.app/api/chat",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ prompt: mensaje }),
-        }
-      );
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/chat`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt: mensaje }),
+      });
 
       const data = await res.json();
 
